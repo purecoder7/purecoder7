@@ -1,37 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Page title</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
 </head>
+
 <body>
-   <nav class="top-head">
-       <div class="logo">
-           <h2>Rohit Maurya</h2>
-       </div>
-       <div class="menuBtn">
-           <div class="circle" id="menuBtn"></div>
-       </div>
-   </nav>
-   
-   <section class="toggleMenu" id="toggleMenu">
-       <div class="">
-           <ul class="list-container">
-               <li><a href="#">Home</a></li>
-                <li> <a href="#">About</a></li>
-                 <li>Contact</li>
-                  <li>Other</li>
-               <li>Coming Soon</li>
-           </ul>
-       </div>
-   </section>
-   
-   <section class="content-written">
-       <h1>Notice </h1>
-       <p> Hello Everyone, <br> <br>
-        I am Rohit Maurya, Software Developer. <br> I want to say that this site is under development. Please Support Us to help in Continuing The Work.<br> <br>Thanks For Visiting. </p>
-   </section>
+<input id="user" type="text">
+<button onclick="getAns()" type="submit">Enter</button>
+<h3 id="ans"></h3>
+<script>console.log('Welcome To Dictionary');
+let userInput = document.getElementById('user');
+let insertAns = document.getElementById('ans')
+function getAns() {
+console.clear()
+
+fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${userInput.value}`).then((r)=> {
+return r.json()
+}).then((a)=> {
+insertAns.innerText = a[0].meanings[0].definitions[0].definition;
+console.log(a[0].phonetics)
+if (a[0].phonetics[0].audio) {
+let ad = new Audio(a[0].phonetics[0].audio)
+ad.play()
+} else if(a[0].phonetics[1].audio) {
+let ad2 = new Audio(a[0].phonetics[1].audio)
+ad2.play()
+}else{
+let ad3 = new Audio(a[0].phonetics[2].audio)
+ad3.play()
+}
+})
+}
+
+// fetch('https://api.dictionaryapi.dev/api/v2/entries/en/hello')
+// .then(response => response.json())
+// .then(json => console.log(json))</script>
 </body>
-<script src="script.js"></script>
+
 </html>
