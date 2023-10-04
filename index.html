@@ -1,43 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+
+  <title>ES8 Project</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+
+
 </head>
 
+
 <body>
-<input id="user" type="text">
-<button onclick="getAns()" type="submit">Enter</button>
-<h3 id="ans"></h3>
-<script>console.log('Welcome To Dictionary');
-let userInput = document.getElementById('user');
-let insertAns = document.getElementById('ans')
-function getAns() {
-console.clear()
 
-fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${userInput.value}`).then((r)=> {
-return r.json()
-}).then((a)=> {
-insertAns.innerText = a[0].meanings[0].definitions[0].definition;
-console.log(a[0].phonetics)
-if (a[0].phonetics[0].audio) {
-let ad = new Audio(a[0].phonetics[0].audio)
-ad.play()
-} else if(a[0].phonetics[1].audio) {
-let ad2 = new Audio(a[0].phonetics[1].audio)
-ad2.play()
-}else{
-let ad3 = new Audio(a[0].phonetics[2].audio)
-ad3.play()
-}
-})
-}
+  <div id="main">
+    <div id="first">
+      <div class="left">
+        <p>Not Available</p>
+        <p>purecoder7@gmail.com</p>
+        <p>Punjab , Bharat</p>
+        <div class="icons">
 
-// fetch('https://api.dictionaryapi.dev/api/v2/entries/en/hello')
-// .then(response => response.json())
-// .then(json => console.log(json))</script>
+
+   
+<a class="fb"> <i class="fa-brands fa-youtube"></i>
+</a>
+
+<a class="fb"> <i class="fa-brands fa-instagram"></i>
+</a>
+<a class="fb"> <i class="fa-brands fa-facebook"></i>
+</a>
+<a class="fb"> <i class="fa-brands fa-twitter"></i>
+</a>
+
+
+        </div>
+      </div>
+      <div class="right">
+        <span id="toggle">
+
+          <i id="tog" class="fa-solid fa-toggle-off"></i> </span>
+
+      </div>
+    </div>
+    <div id="second">
+      <h1 id="iam">I <span class="red">Am</span></h1>
+      <h1 class="trans" id="name">Rohit</h1>
+      <p>FreeLance Web-Developer With 5+ Years Of Experience, Living in india Working At Google</p>
+    </div>
+    <div id="third">
+      <button class="bg-red" type="submit">My Portfolio</button>
+      <button id="about-me" class="bg-g" type="submit">About Me</button>
+    </div>
+  </div>
+
+  <div id="pop" class="hide">
+ 
+    <div id="cancel" class="can-btn">
+      <i id="can" class="fa-solid fa-xmark"></i>
+    </div>
+    <div id="details">
+      <div id="circle">
+
+      </div>
+      <h2>Rohit Maurya</h2>
+      <div class="pos" id="job">
+        <b>Job</b>
+        <b>Web Developer</b>
+      </div>
+      <div class="pos" id="age">
+        <b>Age</b>
+        <b>18</b>
+      </div>
+      <div class="pos" id="national">
+        <b>Nationality</b>
+        <b>Indian</b>
+      </div>
+      <div class="pos" id="national">
+        <b>Freelance</b>
+        <b>Not Available</b>
+      </div>
+      <div class="pos" id="national">
+        <b>Languages</b>
+        <b>English , Hindi</b>
+      </div>
+      <div class="pos" id="national">
+        <b>Resume</b>
+        <b><a href="#">Download Here</a></b>
+      </div>
+      <div class="sq">
+        <h1>5<span>+</span></h1>
+        <p>Years of Experience</p>
+      </div>
+      <div class="sq">
+        <h1>55<span>+</span></h1>
+        <p>Completed Projects</p>
+      </div>
+      <div class="sq">
+        <h1>45<span>+</span></h1>
+        <p>Happy Customers</p>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+  <!--   <a href="https://slimhamdi.net/monji/demos/dark-skinswitcher-sound.html">Preview</a>
+ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  <script src="main.js"></script>
+
 </body>
 
 </html>
